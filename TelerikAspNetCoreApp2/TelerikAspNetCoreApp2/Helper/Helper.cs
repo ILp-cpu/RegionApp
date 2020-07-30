@@ -12,7 +12,7 @@ namespace TelerikAspNetCoreApp2.Helper
         {
             var client = new HttpClient();
 
-            client.BaseAddress = new Uri("http://localhost:270371/");
+            client.BaseAddress = new Uri("http://localhost:27037/");
 
             return client;
         }
