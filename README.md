@@ -45,5 +45,5 @@ WEb API  в свою очередь через зависимость серви
 TelerikRegionCoreClient связь с WebApi через Helper/helper.cs (client.BaseAddress = new Uri("http://localhost:27037/");)
 WebApi через Startup.cs задает сонекшн стринг для контекста БД
 
-
+RouteService сделан для примера, тут можно бюло обойтись одним сервисом и одним контролером.
 
