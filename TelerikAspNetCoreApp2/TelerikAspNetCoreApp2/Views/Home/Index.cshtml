@@ -1,0 +1,197 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="placeholders mb-2">
+    <div class="row d-flex justify-content-start">
+        <div class="col-md-2 mb-3 placeholder">
+            <div class="demo-section wide">
+                @(Html.Kendo().Grid<RegionModel.RegionVModel>()
+                        .Name("gridAsp")
+                        .Columns(columns =>
+                        {
+                            columns.Bound(p => p.region_id).Title("№");
+                            columns.Bound(p => p.region_name).Title("ФО");
+
+                            columns.Group(group => group
+                              .Title("Пассажиропоток")
+                              .Columns(info =>
+                              {
+
+                                  info.Group(g => g.Title("Пол: мужской")
+                                  .Columns(location =>
+                                  {
+                                      location.Bound(c => c.m18).Width(200).Title("0-18 лет");
+                                      location.Bound(c => c.m60).Width(200).Title("18-60 лет");
+                                      location.Bound(c => c.m_over).Width(200).Title("старше 60 лет");
+                                  }));
+
+                                  info.Group(g => g.Title("Пол: женский")
+                                  .Columns(location =>
+                                  {
+                                      location.Bound(c => c.f18).Width(200).Title("0-18 лет");
+                                      location.Bound(c => c.f60).Width(200).Title("18-60 лет");
+                                      location.Bound(c => c.f_over).Width(200).Title("старше 60 лет");
+                                  }));
+
+
+                                  info.Bound(o => o.total).Width(200).Title("Итого");
+                              }));
+
+
+                        })
+                        .Pageable()
+                        .Sortable()
+                        .Filterable()
+                        .Groupable()
+                        .ClientDetailTemplateId("templateSubRF")
+                        .Selectable(selectable => selectable
+                            .Mode(GridSelectionMode.Multiple)
+                            .Type(GridSelectionType.Cell))
+                        .Events(events => events
+                            .Change("onChange")
+                            .DataBound("onDataBound")
+                            )
+                        .DataSource(dataSource => dataSource
+                            .Ajax()
+                            .Read(read => read.Action("Data_Read", "Grid"))
+                         )
+                )
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="demo-section wide">
+    <h3 class="title">Console log</h3>
+    <div class="console"></div>
+</div>
+<style>
+
+    .demo-section {
+        width: 80%;
+    }
+</style>
+
+<script id="templateSubRF" type="text/kendo-tmpl">
+    @(Html.Kendo().Grid<RegionModel.RegionVModel> ()
+                    .Name("grid_#=region_id#")
+                    .Columns(columns =>
+                    {
+                        columns.Bound(o => o.region_id).Width(110).Title("№");
+                        columns.Bound(o => o.region_name).Width(200).Title("Субъект РФ");
+
+
+                        columns.Group(group => group
+                               .Title("Пассажиропоток")
+                               .Columns(info =>
+                               {
+
+                                   info.Group(g => g.Title("Пол: мужской")
+                                   .Columns(location =>
+                                   {
+                                       location.Bound(c => c.m18).Width(200).Title("0-18 лет");
+                                       location.Bound(c => c.m60).Width(200).Title("18-60 лет");
+                                       location.Bound(c => c.m_over).Width(200).Title("старше 60 лет");
+                                   }));
+
+                                   info.Group(g => g.Title("Пол: женский")
+                                   .Columns(location =>
+                                   {
+                                       location.Bound(c => c.f18).Width(200).Title("0-18 лет");
+                                       location.Bound(c => c.f60).Width(200).Title("18-60 лет");
+                                       location.Bound(c => c.f_over).Width(200).Title("старше 60 лет");
+                                   }));
+
+
+                                   info.Bound(o => o.total).Width(200).Title("Итого");
+                               }));
+
+                    })
+                    .DataSource(dataSource => dataSource
+                        .Ajax()
+                        .PageSize(10)
+                        .Read(read => read.Action("HierarchyData_Read", "Grid", new { parentId = "#=region_id#" }))
+                    )
+                    .Pageable()
+                    .Sortable()
+                    .ClientDetailTemplateId("templateRoute")
+                    .ToClientTemplate()
+    )
+</script>
+
+<script id="templateRoute" type="text/kendo-tmpl">
+    @(Html.Kendo().Grid< RegionModel.RouteVModel>()
+                            .Name("gridRoute_#=region_id#")
+                            .Columns(columns =>
+                            {
+                                columns.Group(group => group
+                                .Title("Маршрут")
+                                .Columns(info =>
+                                {
+                                    info.Bound(o => o.from_city).Width(110).Title("Пункт отпр.");
+                                    info.Bound(o => o.to_city).Width(200).Title("Пункт приб.");
+                                }));
+
+                                columns.Group(group => group
+                                .Title("Пассажиропоток")
+                                .Columns(info =>
+                                {
+
+                                    info.Group(g => g.Title("Пол: мужской")
+                                    .Columns(location =>
+                                    {
+                                        location.Bound(c => c.m18).Width(200).Title("0-18 лет");
+                                        location.Bound(c => c.m60).Width(200).Title("18-60 лет");
+                                        location.Bound(c => c.m_over).Width(200).Title("старше 60 лет");
+                                    }));
+
+                                    info.Group(g => g.Title("Пол: женский")
+                                    .Columns(location =>
+                                    {
+                                        location.Bound(c => c.f18).Width(200).Title("0-18 лет");
+                                        location.Bound(c => c.f60).Width(200).Title("18-60 лет");
+                                        location.Bound(c => c.f_over).Width(200).Title("старше 60 лет");
+                                    }));
+
+
+                                    info.Bound(o => o.total).Width(200).Title("Итого");
+                                }));
+
+
+                            })
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .PageSize(10)
+                                .Read(read => read.Action("RouteData_Read", "Grid", new { regionId = "#=region_id#" }))
+                            )
+                            .Pageable()
+                            .Sortable()
+                            .ToClientTemplate()
+    )
+</script>
+
+<script type="text/javascript">
+
+    function onChange(arg) {
+        var selected = $.map(this.select(), function (item) {
+            return $(item).text();
+        });
+
+        kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
+    }
+
+    function onDataBound(arg) {
+       // kendoConsole.log("Grid data bound");
+        //alert(1);
+    }
+
+</script>
+
+<style>
+    div.console div {
+        height: auto;
+    }
+</style>

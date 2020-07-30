@@ -1,0 +1,225 @@
+USE [BackUpDB2]
+GO
+/****** Object:  Table [dbo].[City]    Script Date: 30.07.20 16:53:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[City](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Region_Id] [int] NOT NULL,
+	[City_Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_City] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Region]    Script Date: 30.07.20 16:53:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Region](
+	[region_id] [int] NOT NULL,
+	[parent_region_id] [int] NOT NULL,
+	[region_name] [nvarchar](500) NOT NULL,
+	[feature_binding_id] [int] NULL,
+	[entity_type_id] [int] NOT NULL,
+	[region_level] [int] NOT NULL,
+ CONSTRAINT [PK_Region] PRIMARY KEY CLUSTERED 
+(
+	[region_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Route]    Script Date: 30.07.20 16:53:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Route](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FromCityId] [int] NOT NULL,
+	[ToCityId] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[EventDate] [date] NULL,
+ CONSTRAINT [PK_Route] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 30.07.20 16:53:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Age] [int] NOT NULL,
+	[Gender] [nchar](1) NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[City] ON 
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (1, 1137574, N'Брянск')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (2, 1137574, N'Клинцы')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (3, 1137574, N'Фокино')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (4, 1137574, N'Севск')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (5, 1137574, N'Злынка')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (6, 1135368, N'Белгород')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (7, 1135368, N'Бирюч')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (8, 1135368, N'Вайлуки')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (9, 1135368, N'Губкин')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (10, 1134582, N'Астрахань')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (11, 1134582, N'Знаменск')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (12, 1134582, N'Камызяк')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (13, 1134582, N'Нариманов')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (14, 1120524, N'Краснодар')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (15, 1120524, N'Анапа')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (16, 1120524, N'Сочи')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (17, 1120524, N'Армавир')
+GO
+INSERT [dbo].[City] ([Id], [Region_Id], [City_Name]) VALUES (18, 1120524, N'Туапсе')
+GO
+SET IDENTITY_INSERT [dbo].[City] OFF
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (1120524, 9000002, N'Краснодарский край', 3000000, 3, 3)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (1134582, 9000002, N'Астраханская область
+', 12000000, 3, 3)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (1135368, 9000001, N'Белгородская область
+', 14000000, 3, 3)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (1137574, 9000001, N'Брянская область', 15000000, 3, 3)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (1203936, 9000003, N'Санкт-Петербург', 40000000, 3, 3)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (9000001, 185, N'Центральный федеральный округ', -1029256, 2, 2)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (9000002, 185, N'Южный федеральный округ', -1059500, 2, 2)
+GO
+INSERT [dbo].[Region] ([region_id], [parent_region_id], [region_name], [feature_binding_id], [entity_type_id], [region_level]) VALUES (9000003, 185, N'Cеверо-Западный федеральный округ
+', -1216601, 2, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Route] ON 
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (1, 2, 5, 2, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (2, 3, 1, 3, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (3, 7, 1, 7, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (4, 1, 2, 7, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (5, 1, 3, 11, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (6, 3, 1, 8, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (7, 9, 6, 9, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (11, 5, 1, 12, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (13, 1, 5, 13, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (14, 1, 5, 14, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (15, 2, 3, 15, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (16, 15, 14, 14, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (17, 13, 10, 11, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (19, 7, 9, 9, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (20, 6, 7, 8, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (21, 5, 2, 2, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (23, 6, 9, 5, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (24, 8, 7, 11, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (25, 3, 2, 11, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (26, 2, 3, 2, CAST(N'2020-07-29' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (28, 6, 9, 11, CAST(N'2020-07-30' AS Date))
+GO
+INSERT [dbo].[Route] ([Id], [FromCityId], [ToCityId], [UserId], [EventDate]) VALUES (29, 14, 15, 11, CAST(N'2020-07-30' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[Route] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (2, N'Мистер', 18, N'M')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (3, N'Лена', 18, N'F')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (5, N'Андрей', 18, N'M')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (7, N'Михаил', 35, N'M')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (8, N'Иван', 62, N'M')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (9, N'Петр', 67, N'M')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (11, N'Николай', 45, N'M')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (12, N'Светлана', 14, N'F')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (13, N'Оксана', 33, N'F')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (14, N'Зинаида', 80, N'F')
+GO
+INSERT [dbo].[Users] ([Id], [Name], [Age], [Gender]) VALUES (15, N'Ольга', 20, N'F')
+GO
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+ALTER TABLE [dbo].[Route] ADD  CONSTRAINT [DF_Route_EventDate]  DEFAULT (getdate()) FOR [EventDate]
+GO
+ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF__Users__Age__1273C1CD]  DEFAULT ((0)) FOR [Age]
+GO
+ALTER TABLE [dbo].[City]  WITH NOCHECK ADD  CONSTRAINT [FK_City_Region] FOREIGN KEY([Region_Id])
+REFERENCES [dbo].[Region] ([region_id])
+GO
+ALTER TABLE [dbo].[City] CHECK CONSTRAINT [FK_City_Region]
+GO
+ALTER TABLE [dbo].[Route]  WITH CHECK ADD  CONSTRAINT [FK_Route_City] FOREIGN KEY([FromCityId])
+REFERENCES [dbo].[City] ([Id])
+GO
+ALTER TABLE [dbo].[Route] CHECK CONSTRAINT [FK_Route_City]
+GO
+ALTER TABLE [dbo].[Route]  WITH CHECK ADD  CONSTRAINT [FK_Route_City1] FOREIGN KEY([ToCityId])
+REFERENCES [dbo].[City] ([Id])
+GO
+ALTER TABLE [dbo].[Route] CHECK CONSTRAINT [FK_Route_City1]
+GO
+ALTER TABLE [dbo].[Route]  WITH CHECK ADD  CONSTRAINT [FK_Route_Users] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([Id])
+GO
+ALTER TABLE [dbo].[Route] CHECK CONSTRAINT [FK_Route_Users]
+GO
