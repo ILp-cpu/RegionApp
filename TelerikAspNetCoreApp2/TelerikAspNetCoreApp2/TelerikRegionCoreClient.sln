@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikRegionCoreClient", "TelerikRegionCoreClient.csproj", "{48DE82E9-A0E2-4092-8BBC-1F5930ED8E7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikRegionCoreClient", "TelerikRegionCoreClient.csproj", "{C9C88F37-DE56-4B00-9F24-6459F0E4200B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionService", "..\RegionService\RegionService.csproj", "{954B7AF4-B77C-4A3B-B7A3-933625DCD6DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionContext", "..\RegionContext\RegionContext.csproj", "{8A08FFF5-5610-4EEE-A3F1-9B6C5ABE3A11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionApi", "..\RegionApi\RegionApi.csproj", "{EA418468-6457-4019-8156-5BC4E74F31F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionModel", "..\RegionModel\RegionModel.csproj", "{40426B4C-4079-4F1D-B02D-A602679671C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +19,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{48DE82E9-A0E2-4092-8BBC-1F5930ED8E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48DE82E9-A0E2-4092-8BBC-1F5930ED8E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48DE82E9-A0E2-4092-8BBC-1F5930ED8E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48DE82E9-A0E2-4092-8BBC-1F5930ED8E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C88F37-DE56-4B00-9F24-6459F0E4200B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C88F37-DE56-4B00-9F24-6459F0E4200B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C88F37-DE56-4B00-9F24-6459F0E4200B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C88F37-DE56-4B00-9F24-6459F0E4200B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{954B7AF4-B77C-4A3B-B7A3-933625DCD6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954B7AF4-B77C-4A3B-B7A3-933625DCD6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954B7AF4-B77C-4A3B-B7A3-933625DCD6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954B7AF4-B77C-4A3B-B7A3-933625DCD6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A08FFF5-5610-4EEE-A3F1-9B6C5ABE3A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A08FFF5-5610-4EEE-A3F1-9B6C5ABE3A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A08FFF5-5610-4EEE-A3F1-9B6C5ABE3A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A08FFF5-5610-4EEE-A3F1-9B6C5ABE3A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA418468-6457-4019-8156-5BC4E74F31F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA418468-6457-4019-8156-5BC4E74F31F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA418468-6457-4019-8156-5BC4E74F31F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA418468-6457-4019-8156-5BC4E74F31F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40426B4C-4079-4F1D-B02D-A602679671C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40426B4C-4079-4F1D-B02D-A602679671C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40426B4C-4079-4F1D-B02D-A602679671C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40426B4C-4079-4F1D-B02D-A602679671C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {50607753-0D8E-4540-BCED-6ED4A4B7D340}
+		SolutionGuid = {E2215448-99FA-48F7-A42C-E6B8C530B58E}
 	EndGlobalSection
 EndGlobal

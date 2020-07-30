@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikRegionCoreClient", "..\TelerikAspNetCoreApp2\TelerikAspNetCoreApp2\TelerikRegionCoreClient.csproj", "{F915E303-797A-4DC7-B8B5-A93F6ACE9889}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionContext", "RegionContext\RegionContext.csproj", "{C6929453-FB6E-45E0-B03D-50F548BC0268}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegionService", "RegionService\RegionService.csproj", "{8AD978E5-C9D1-44DF-9113-BB74D274F77E}"
@@ -25,16 +23,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\..\..\..\TEMP\test_reg.bak = ..\..\..\..\..\TEMP\test_reg.bak
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikRegionCoreClient", "TelerikAspNetCoreApp2\TelerikAspNetCoreApp2\TelerikRegionCoreClient.csproj", "{83CCC5D2-2DB1-4C8D-ABF3-D80AB3DE0149}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F915E303-797A-4DC7-B8B5-A93F6ACE9889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F915E303-797A-4DC7-B8B5-A93F6ACE9889}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F915E303-797A-4DC7-B8B5-A93F6ACE9889}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F915E303-797A-4DC7-B8B5-A93F6ACE9889}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6929453-FB6E-45E0-B03D-50F548BC0268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6929453-FB6E-45E0-B03D-50F548BC0268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6929453-FB6E-45E0-B03D-50F548BC0268}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{EBBD25F1-B08B-4B19-8337-8415F1ECE53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBBD25F1-B08B-4B19-8337-8415F1ECE53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBBD25F1-B08B-4B19-8337-8415F1ECE53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CCC5D2-2DB1-4C8D-ABF3-D80AB3DE0149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83CCC5D2-2DB1-4C8D-ABF3-D80AB3DE0149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83CCC5D2-2DB1-4C8D-ABF3-D80AB3DE0149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83CCC5D2-2DB1-4C8D-ABF3-D80AB3DE0149}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

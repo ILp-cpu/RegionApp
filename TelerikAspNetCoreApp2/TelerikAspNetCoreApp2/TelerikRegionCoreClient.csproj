@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\WebApplication8\RegionModel\RegionModel.csproj" />
+    <ProjectReference Include="..\..\RegionModel\RegionModel.csproj" />
   </ItemGroup>
 
 </Project>
